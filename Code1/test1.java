@@ -8,8 +8,8 @@ public class test1 {
 	public static void main(String args[]) {
 		String fileName = "recipe-data.txt";
 		try{
-		      File file = new File(fileName);
-		      FileReader fileReader = new FileReader(file);
+		      File utf8File = new File(fileName);
+		      FileReader fileReader = new FileReader(utf8File);
 
 		      int ch;
 		      while((ch = fileReader.read()) != -1){

@@ -1,13 +1,17 @@
 import java.io.*;
 
 /**ファイルからレシピ情報を取得し、コンソールに出力*/
+
 public class Test1 {
+    
 	public static void main(String args[]) {
 		String fileName = "recipe-data.txt";
 		String[] recipeList = null;
+        int recipeId = -1;
+        if (args.length > 0) recipeId = Integer.parseInt(args[0]);
 		try{
-            File utf8File = new File(fileName);
-            FileReader fileReader = new FileReader(utf8File);
+            File ANSIFile = new File(fileName);
+            FileReader fileReader = new FileReader(ANSIFile);
             
             int ch;
             String readedRecipe = "";
@@ -15,7 +19,6 @@ public class Test1 {
 		        readedRecipe += (char)ch;
             }
             recipeList = readedRecipe.split("\n");
-		      
             fileReader.close();
         }catch(FileNotFoundException e){
             System.out.println(e);
@@ -24,7 +27,10 @@ public class Test1 {
         }
 		for(int i=0; i<recipeList.length; i++)
 		{
-			System.out.println(i+1+": "+recipeList[i]);
+            if (recipeId == -1 || recipeId == i+1){
+                System.out.println(i+1+": "+recipeList[i]);
+            }
+            
 		}
 	}
 }

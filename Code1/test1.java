@@ -1,30 +1,27 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
-/**ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ãƒ¬ã‚·ãƒ”æƒ…å ±ã‚’å–å¾—ã—ã€ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«å‡ºåŠ›*/
-public class test1 {
+/**ƒtƒ@ƒCƒ‹‚©‚çƒŒƒVƒsî•ñ‚ğæ“¾‚µAƒRƒ“ƒ\[ƒ‹‚Éo—Í*/
+public class Test1 {
 	public static void main(String args[]) {
 		String fileName = "recipe-data.txt";
 		String[] recipeList = null;
 		try{
-		      File utf8File = new File(fileName);
-		      FileReader fileReader = new FileReader(utf8File);
-
-		      int ch;
-		      String readedRecipe = "";
-		      while((ch = fileReader.read()) != -1){
+            File utf8File = new File(fileName);
+            FileReader fileReader = new FileReader(utf8File);
+            
+            int ch;
+            String readedRecipe = "";
+            while((ch = fileReader.read()) != -1){
 		        readedRecipe += (char)ch;
-		      }
-		      recipeList = readedRecipe.split("\n");
+            }
+            recipeList = readedRecipe.split("\n");
 		      
-		      fileReader.close();
-		    }catch(FileNotFoundException e){
-		      System.out.println(e);
-		    }catch(IOException e){
-		      System.out.println(e);
-		    }
+            fileReader.close();
+        }catch(FileNotFoundException e){
+            System.out.println(e);
+        }catch(IOException e){
+            System.out.println(e);
+        }
 		for(int i=0; i<recipeList.length; i++)
 		{
 			System.out.println(i+1+": "+recipeList[i]);
